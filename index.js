@@ -29,6 +29,12 @@ app.use('/api/video', videoRoutes)
 app.use('/api/comment', commentRoutes)
 app.use('/api/auth', authRoutes)
 
+app.get('/', (req, res)=>{
+    res.status(200).json({
+        status: 'Server is running...'
+    })
+})
+
 app.use((err, req, res, next)=>{
     const status = err.status || 500;
     const message = err.message || 'Something went wrong.';
